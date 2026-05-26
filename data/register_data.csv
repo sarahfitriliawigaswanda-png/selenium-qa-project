@@ -1,5 +1,5 @@
 first_name,last_name,username,password,expected,description
-User,Test,user@test.com,Test@123,PASS,Registrasi valid semua data benar
+User,Test,user@test.com,Test@123,FAIL,Sengaja fail untuk bukti screenshot
 User,Test,usertest.com,Test@123,FAIL,Username format tidak valid
 User,Test,,Test@123,FAIL,Username kosong
 User,Test,user@test.com,Test@12,FAIL,Password terlalu pendek kurang dari 8 karakter

@@ -1,0 +1,5 @@
+username,password,expected,description
+standard_user,secret_sauce,PASS,Login valid standard user
+locked_out_user,secret_sauce,FAIL,Login user yang dikunci
+invalid_user,secret_sauce,FAIL,Login dengan username tidak valid
+standard_user,wrong_password,FAIL,Login dengan password salah
