@@ -1,4 +1,5 @@
 from selenium.webdriver.common.by import By
+from selenium.webdriver.common.action_chains import ActionChains
 from pages.base_page import BasePage
 
 class RegisterPage(BasePage):
@@ -26,7 +27,9 @@ class RegisterPage(BasePage):
             self.type(self.PASSWORD, password)
 
     def click_register(self):
-        self.click(self.REGISTER_BTN)
+        btn = self.find_clickable(self.REGISTER_BTN)
+        self.driver.execute_script('arguments[0].scrollIntoView(true);', btn)
+        self.driver.execute_script('arguments[0].click();', btn)
 
     def is_register_successful(self):
         return self.is_visible(self.SUCCESS_MSG)
@@ -34,5 +37,4 @@ class RegisterPage(BasePage):
     def is_register_failed(self):
         if self.is_visible(self.ERROR_MSG):
             return True
-        current_url = self.get_current_url()
-        return 'register' in current_url
+        return 'register' in self.get_current_url()
